@@ -45,6 +45,10 @@ defmodule PlannerApiWeb.Endpoint do
 
   plug Plug.MethodOverride
   plug Plug.Head
+
+  # Adding Corsica before Router
+  plug Corsica, max_age: 600, origins: "*"
+
   plug Plug.Session, @session_options
   plug PlannerApiWeb.Router
 end
